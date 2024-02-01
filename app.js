@@ -60,7 +60,7 @@ app.post("/login", (request, response) => {
           if (!passwordCheck) {
             return response.status(400).send({
               message: "Passwords does not match",
-              error,
+              //   error,
             });
           }
 
@@ -96,6 +96,19 @@ app.post("/login", (request, response) => {
         e,
       });
     });
+});
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+  );
+  next();
 });
 
 // Start the server
