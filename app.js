@@ -1,12 +1,15 @@
-// require database connection 
-const { connect } = require("mongoose");
-const dbConnect = require("./dbconnect");
-const app = require("express")
+// require database connection
+const dbConnect = require("./db/dbconnect");
+const express = require('express');
 
+const app = express();
 
 const PORT = process.env.PORT || 3006;
 
-app.listen(PORT, console.log(`Server running on PORT ${PORT}`));
-
-// execute database connection 
+// execute database connection
 dbConnect();
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
