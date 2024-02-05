@@ -7,4 +7,16 @@
         <h2>
           Register New User
         </h2>
-       
+        <%- include ("./messages") %>
+        <form action="/auth/register" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name"
+              value="<%= typeof name != 'undefined' ? name : '' %>" />
+          </div>
+          
+        </form>
+        <p class="mt-4">Already have an account? <a href="/auth/login">Login</a></p>
+      </div>
+    </div>
+  </div>
